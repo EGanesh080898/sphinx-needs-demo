@@ -1,0 +1,16 @@
+# Gitpod configuration to run Sphinx live-reload server
+# Open this repo in Gitpod: https://gitpod.io/#<YOUR_GITHUB_REPO_URL>
+tasks:
+  - name: Setup & Live Docs
+    init: |
+      python -m venv .venv
+      source .venv/bin/activate
+      pip install -r requirements.txt
+    command: |
+      source .venv/bin/activate
+      make live
+
+ports:
+  - port: 8000
+    onOpen: open-browser
+    visibility: public
